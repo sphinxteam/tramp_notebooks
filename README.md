@@ -5,6 +5,17 @@
 - model DAG algebra and plot
 - message passing
 
+## Applications
+
+- signal denoising
+  - sparse gradient
+  - L2 regularized gradient
+- sparse fft
+- image deconvolution
+- image denoising
+  - sparse gradient
+  - total variation
+
 ## Models
 
 - gaussian denoiser and I-MMSE

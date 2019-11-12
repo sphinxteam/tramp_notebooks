@@ -3,6 +3,7 @@
 wip_notebooks
 
 *.pdf
+__pycache__/
 
 # MacOS
 .DS_Store

@@ -2,7 +2,7 @@
 
 ## General
 
-- model DAG algebra and plot
+- model algebra and plot
 - message passing
 
 ## Applications
@@ -10,18 +10,19 @@
 - signal denoising
   - sparse gradient
   - L2 regularized gradient
-- sparse fft
+  - sparse FFT
 - image deconvolution
 - image denoising
   - sparse gradient
   - total variation
 
-## Models
+## GLM
 
-- gaussian denoiser and I-MMSE
-- sparse regression and Donoho Tanner phase transition
-- perceptron and Gardner phase transition
-- sng and phase retrieval
+Some classic generalized linear models
+
+- perceptron
+- compressed sensing
+- sgn and phase retrieval
 
 ## Priors
 

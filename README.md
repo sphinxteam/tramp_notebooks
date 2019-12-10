@@ -33,7 +33,7 @@ Some classic generalized linear models
 ## Likelihoods
 
 - Abs y = abs(x)
-- Sng y = sng(x
+- Sgn y = sgn(x)
 - Gaussian
 
 ## Channels

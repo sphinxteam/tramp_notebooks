@@ -11,7 +11,7 @@ import tramp
 # Tramp package
 from tramp.algos.metrics import mean_squared_error
 from tramp.algos import NoisyInit
-from tramp.algos import EarlyStopping, ExpectationPropagation, JoinCallback, TrackEvolution
+from tramp.algos import EarlyStopping, ExpectationPropagation, JoinCallback, TrackEstimate
 from tramp.ensembles import GaussianEnsemble
 from tramp.variables import SISOVariable as V, SILeafVariable as O, MISOVariable as M
 from tramp.likelihoods import GaussianLikelihood
@@ -68,8 +68,9 @@ class Model_Prior():
         self.list_var = []
 
         # Callback
-        #self.callback = JoinCallback([EarlyStopping(tol=1e-8, min_variance=1e-12), TrackEvolution()])
-        self.callback = TrackEvolution()
+        self.x_tracker = TrackEstimate(ids="x",every=100)
+        self.callback = self.x_tracker
+
 
     def setup(self):
         # Build prior module
@@ -283,7 +284,7 @@ class Model_Prior():
         ep = ExpectationPropagation(self.model)
         ep.iterate(
             max_iter=max_iter, callback=self.callback, initializer=initializer, damping=0.5)
-        track = self.callback.get_dataframe()
+        track = self.x_tracker.get_dataframe()
         ep_x_data = ep.get_variables_data(self.x_ids)
         ep_x_data_evo = track.loc[track['id'] == 'x']
         return ep_x_data, ep_x_data_evo

@@ -6,7 +6,7 @@ from VAE_inpainting_denoising.model_prior_real_data import Model_Prior
 def run_demo(model='inpainting', data='mnist',category=0, n_rem=1, Delta=0.01,
              seed=0, max_iter=1000,
              plot_prior_sample=False, plot_truth_vs_pred=False, 
-             plot_evolution=False, save_fig=False):
+             plot_evolution=False, save_fig=False, block=False):
     ## Choose Model ##
     if model == 'inpainting':
         model_params = {'name': 'inpainting',
@@ -35,15 +35,14 @@ def run_demo(model='inpainting', data='mnist',category=0, n_rem=1, Delta=0.01,
     output, output_tracking = EP.run_ep(
         max_iter=max_iter, check_decreasing=False)
     mse_ep, mse = EP.compute_mse(output)
-    EP.plot_truth_vs_prediction(x_pred=EP.x_pred['x'], save_fig=save_fig, block=False)
+    EP.plot_truth_vs_prediction(x_pred=EP.x_pred['x'], save_fig=save_fig, block=block)
 
     ## Plot evolution during training
     if plot_evolution:
-        print(len(output_tracking))
         for i in range(len(output_tracking)):
-            if i % int(max_iter/10) == 0:
-                x_pred = output_tracking.iloc[i]['r']
-                EP.plot_truth_vs_prediction(x_pred=output_tracking.iloc[i]['r'], save_fig=save_fig, block=False)
+            x_pred = output_tracking.iloc[i]['r']
+            EP.plot_truth_vs_prediction(x_pred=x_pred, save_fig=save_fig, block=block)
+
 
 
 

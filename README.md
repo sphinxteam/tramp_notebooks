@@ -1,4 +1,4 @@
-# Notebooks to illustrate tramp module
+# Notebooks to illustrate tramp package
 
 ## General
 
@@ -15,6 +15,7 @@
 - image denoising
   - sparse gradient
   - total variation
+- MNIST denoising and inpainting using a VAE prior
 
 ## GLM
 
@@ -23,19 +24,5 @@ Some classic generalized linear models
 - perceptron
 - compressed sensing
 - sgn and phase retrieval
-
-## Priors
-
-- Gaussian
-- Binary
-- GaussBernoulli
-
-## Likelihoods
-
-- Abs y = abs(x)
-- Sgn y = sgn(x)
-- Gaussian
-
-## Channels
-
-- Linear x = W z
+- relu output
+- symmetric door output

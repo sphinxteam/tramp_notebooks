@@ -1,4 +1,4 @@
-# Notebooks to illustrate tramp package
+# Notebooks to illustrate the tramp package
 
 ## General
 
